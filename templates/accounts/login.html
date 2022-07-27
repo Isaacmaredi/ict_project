@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>UL ICT Contracts & Portfolio Login </title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'vendors/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{% static 'vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{% static 'vendors/nprogress/nprogress.css' %}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+<link href="{% static 'build/css/custom.min.css' %}" rel="stylesheet">
+</head>
+
+<body class="nav-md" style="background-color:rgb(4, 59, 100)">
+<div class="container body" style="background-color:rgba(15, 114, 188)">
+    <div class="main_container">
+    <!-- page content -->  
+    <div class="col-md-12">
+        <div class="col-middle mt-40">
+        
+        <div class="text-center text-center">
+            <div class="site_title mb-20">
+                <img src="{% static 'images/ul_logo_2.png' %}"  alt="UL Logo">
+            </div>
+    
+            <h1 >ICT Contracts & Portfolio</h1>
+            <h2>Only authorised used can login </h2>
+            <p></a>
+            </p>
+            <div class="mid_center">
+            <h3>User Login</h3>
+            {% include 'partials/_alerts.html' %}
+            <div class="col-md-12 col-sm-12">
+                <div class="bs-example" data-example-id="simple-jumbotron">
+                    <div class="jumbotron ">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                            <label for="username"></label>
+                            <input type="text" name="username" class="form-control" placeholder="Username" required>
+                            </div>
+            
+                            <div class="form-group">
+                            <label for="password"></label>
+                            <input type="password" name="password" class="form-control" placeholder="Password" required>
+                            </div>
+                            <hr>
+                            <br>
+        
+                            <input type="submit" value="Login" class="btn-info btn-lg btn-block" >
+                        </form>    
+                    
+                    </div>
+                    </div>
+
+            </div>
+            
+            <br>
+            
+            <h2> <small>Forgot password?</small> 
+                <a href="#"> Click here to reset</a>
+            </h2> 
+            
+        </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- /page content -->
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="{% static 'vendors/jquery/dist/jquery.min.js' %}"></script>
+<!-- Bootstrap -->
+<script src="{% static 'vendors/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+<!-- FastClick -->
+<script src="{% static 'vendors/fastclick/lib/fastclick.js' %}"></script>
+<!-- NProgress -->
+<script src="{% static 'vendors/nprogress/nprogress.js' %}"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="{% static 'build/js/custom.min.js' %}"></script>
+<script src="{% static 'build/js/mycustom.js' %}" ></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{% load static %}
+<div class="col-md-3 left_col menu_fixed">
+    <div class="left_col scroll-view" >
+        <div class="navbar nav_title" style="border: 0;">
+        
+            <a href="" class="site_title">
+                <img src="{% static 'images/ul_logo_2.png' %}"  alt="UL Logo">
+            </a>
+        </div>
+
+        <div class="clearfix"></div>  
+
+                <!-- menu profile quick info -->
+        <div class="profile clearfix">
+        
+        </div>
+        <br>
+        <br>
+
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" >
+            <div class="menu_section">
+                <h3 style="color: rgba(240, 219, 99, 0.856);text-decoration:underline">General User Menu</h3>
+                <ul class="nav side-menu">
+                    <li><a href="#"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+                    <li><a><i class="fa fa-file"></i>Contract Management<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                        
+                            <li ><a href="{% url 'vendors:vendor-list' %}"> Vendors</a></li>
+                            <li ><a href="{% url 'contracts:contract-list' %}"> Contracts</a></li>
+                            <li><a href="{% url 'licenses:license-list' %}">Licenses</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fa fa-list"></i>Portfolio Management <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{% url 'projects:project-list' %}">Projects</a></li>
+                        </ul>          
+                    </li>
+                    <li><a href="{% url 'profiles:profile-list' %}" ><i class="fa fa-group"></i>User Profiles</a></li>
+                                    
+                </ul>          
+            </div>
+            
+            <div class="menu_section">
+                {% if user.is_superuser %}
+            
+                <h3 style="color: rgba(240, 219, 99, 0.856);text-decoration:underline">Admin User Menu</h3>
+                <ul class="nav side-menu">
+                    <li><a><i class="fa fa-laptop"></i>Admin - Frontend <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="{% url 'profiles:profile-admin' %}">Manage User Profiles</a></li>    
+                        <li><a href="{% url 'vendors:vendor-admin' %}">Manage Vendors</a></li>
+                        <li><a href="{% url 'contracts:contract-admin' %}">Manage Contracts </a></li>
+                        <li><a href="{% url 'licenses:license-admin' %}">Manage Licenses</a></li>
+                        <li><a >Manage Portfolio<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li class="sub_menu"><a href="{% url 'projects:project-admin' %}">Projects</a>
+                            </li>
+                        </li>
+                        </ul>
+                        </li> 
+                    </ul>
+                    </li>
+                    <li><a href="{% url 'admin:index' %}" target="_blank" ><i class="fa fa-server"></i>
+                            Admin - Back Office
+                        </a>
+                    </li> 
+                    {% endif %} 
+                </ul> 
+                
+                <ul class="nav side-menu">
+                    <li><a href="{% url 'accounts:logout' %}"><i class="fa fa-sign-out"></i> Logout </a></li>
+                </ul> 
+                    
+            </div>
+        </div>
+    </div>
+</div>
