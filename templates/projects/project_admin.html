@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-| ICT Contracts
+| ICT Projects
 {% endblock title %}
 
 {% block content %}
@@ -20,8 +20,8 @@
 		
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb bg-light">
-					<li class="breadcrumb-item"><a href="{% url 'dash:dashboard' %}">Home</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Contracts Admin</li>
+					<li class="breadcrumb-item"><a href="{% url 'profiles:profile-list' %}">Profiles</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Projects Admin</li>
 				</ol>
 			</nav>
 		</div>
@@ -62,14 +62,7 @@
 					
 				</div>
 				<div class="col-md-3 col-sm-6">
-					<div class="pricing_footer bg-light">
-						<div class="title">
-							<form action="" method="GET">
-								<input name="" type="text" placeholder="Search member">
-								<button type="submit" class="btn btn-info"> Go...</button>
-							</form>
-						</div>
-					</div>
+					
 
 				</div>
 
@@ -105,13 +98,13 @@
                             <td >
                                 {{project.end_date|date:'d-m-Y'}}
                             </td>
-                           
-                            <td class="project_progress">
-                            <div class="progress progress_sm">
-                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="80"></div>
-                            </div>
-                              80% Complete</small>
-                          </td>
+						
+						<td class="project_progress">
+						<div class="progress progress_sm">
+							<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="80"></div>
+						</div>
+							30% Complete</small>
+						</td>
                             <td class="vertical-align-mid">
                                 <div class="progress">
                                     {% if project.status == 'Completed' %}

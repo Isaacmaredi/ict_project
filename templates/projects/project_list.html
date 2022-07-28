@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-| ICT Contracts
+| ICT Contracts  
 {% endblock title %}
 
 {% block content %}
@@ -20,8 +20,8 @@
 		
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb bg-light">
-					<li class="breadcrumb-item"><a href="{% url 'dash:dashboard' %}">Home</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Contracts Admin</li>
+					<li class="breadcrumb-item"><a href="{% url 'profiles:profile-list' %}">Profiles</a></li>
+					<li class="breadcrumb-item active" aria-current="page">ICT Projects List</li>
 				</ol>
 			</nav>
 		</div>
@@ -103,26 +103,22 @@
                             </td>
                             <td>
                                 <ul class="list-inline">
-                                    <li>
-                                    <img src="images/user.png" class="avatar" alt="Avatar">
-                                    </li>
-                                    <li>
-                                    <img src="images/user.png" class="avatar" alt="Avatar">
-                                    </li>
-                                    <li>
-                                    <img src="images/user.png" class="avatar" alt="Avatar">
-                                    </li>
-                                    <li>
-                                    <img src="images/user.png" class="avatar" alt="Avatar">
-                                    </li>
+                                    
+								{% for team_member in project.team_members.all %}    
+    
+									<li class="list-inline-item">
+										<img data-toggle="tooltip" title="{{team_member.name.full_name}} : {{team_member.project_role}}" class="avatar" alt="Avatar" class="table-avatar" src="{{team_member.name.photo.url}}">                              
+									</li>  
+							{% endfor %}
+
                                 </ul>
                             </td>
                             <td class="project_progress">
                             <div class="progress progress_sm">
-                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="80"></div>
+							<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="80"></div>
                             </div>
-                              80% Complete</small>
-                          </td>
+							80% Complete</small>
+						</td>
                             <td class="vertical-align-mid" style="width: 10">
                                 <div class="progress">
                                     {% if project.status == 'Completed' %}

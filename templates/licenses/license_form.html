@@ -2,7 +2,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %}| Add project{% endblock title %}
+{% block title %}| Add License{% endblock title %}
 
 {% block content %}
 
@@ -11,7 +11,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Add a Project</h3>
+                <h3>Add Software License</h3>
             </div>
 
             <div class="title_right">
@@ -19,8 +19,8 @@
                 
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb bg-light">
-                            <li class="breadcrumb-item"><a href="{% url 'licenses:project-admin' %}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">ICT Project Add</li>
+                            <li class="breadcrumb-item"><a href="{% url 'licenses:license-admin' %}">All Licenses</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Add Software License</li>
                         </ol>
                     </nav>
                 </div>
@@ -100,7 +100,7 @@
                                 <div class="ln_solid"></div>
                                 <div class="form-group row btn-inline">
                                     <div class="col-md-12 col-sm-12 offset-md-12">
-                                        <a href="{% url 'projects:project-admin'%} " class="btn btn-primary" type="button">Cancel</a>
+                                        <a href="{% url 'licenses:license-admin'%} " class="btn btn-primary" type="button">Cancel</a>
                                         <button class="btn btn-warning" type="reset">Reset</button>
                                         <button type="submit" class="btn btn-success">Submit </button>
                                     </div>

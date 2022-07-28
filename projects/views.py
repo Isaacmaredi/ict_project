@@ -13,7 +13,7 @@ class ProjectListView(LoginRequiredMixin,ListView):
     model = Project
     template_name = 'projects/project_list.html'
     context_object_name = 'projects'
-    paginate_by = 2
+    paginate_by = 10
     
     def get_context_data(self, *args, **kwargs):
         context = super(ProjectListView,self).get_context_data(*args, **kwargs)
@@ -24,7 +24,7 @@ class ProjectAdminListView(LoginRequiredMixin,ListView):
     model = Project
     template_name = 'projects/project_admin.html'
     context_object_name = 'projects'
-    paginate_by = 2
+    paginate_by = 10
     
     def get_context_data(self, *args, **kwargs):
         context = super(ProjectAdminListView,self).get_context_data(*args, **kwargs)

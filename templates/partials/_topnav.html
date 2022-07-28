@@ -9,16 +9,14 @@
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                     <img src="{{user.profile.photo.url}}" alt="">
-                    <span style:"color: #2A3F54;" >Welcome  ({{request.user.first_name}}) </span>  
+                    <span style:"color: #2A3F54;" >Welcome  ({{request.user.first_name}}) <i> Profile</i></span>  
                     </a>
                 
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown" style="background-color:#2A3F54" >
                         <a class="dropdown-item text-light"  href="{% url 'profiles:my-profile' request.user.id %}">  
                             <i> my</i>Profile
                         </a>
-                        <a class="dropdown-item text-light"  href="#">
-                        <span> <i> my</i>Finances</span>
-                        </a>
+                    
                         <a class="dropdown-item text-light"  href="{% url 'accounts:password-change' %}">Change Password</a>
                         <a class="dropdown-item text-light"  href="{% url 'accounts:logout' %}"><i class="fa fa-sign-out pull-right"></i> Logout</a>
                     </div>         

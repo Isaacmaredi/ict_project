@@ -27,14 +27,6 @@ PROJECT_ROLES_CHOICES =[
     ('Business User', 'Business User'),
 ]
 
-class Team(models.Model):
-    name = models.ForeignKey(Profile, on_delete=models.DO_NOTHING, related_name='profiles')
-    project_role = models.CharField(max_length=150, choices=PROJECT_ROLES_CHOICES, 
-                                    verbose_name="Project Role",default='Project Manager')
-    
-    def __str__(self):
-        return f'{self.name} - {self.project_role}'
-
 class Deliverable (models.Model):
     name = models.CharField(max_length=300,)
     due_date = models.DateField()
@@ -57,7 +49,7 @@ class Project(models.Model):
                                         related_name="projects",blank=True, null=True)
     contract = models.ForeignKey(Contract, blank=True, null=True,on_delete=models.DO_NOTHING, related_name="projects")
     status = models.CharField(max_length=150, default= "Not Started", choices=PROJECT_STATUS_CHOICES)
-    team = models.ForeignKey(Team, on_delete=models.DO_NOTHING, blank=True,null=True, related_name="projects")
+    
     milestone = models.ForeignKey(Deliverable, blank=True,null=True, verbose_name="Milestone",on_delete=models.SET_NULL, related_name="projects")  
     
     def __str__(self):
@@ -65,4 +57,12 @@ class Project(models.Model):
     
     def get_absolute_url(self,**kwargs):
         return reverse('projects:project-admin')
-        
+
+class Team(models.Model):
+    name = models.ForeignKey(Profile, on_delete=models.DO_NOTHING, related_name='profiles')
+    project_role = models.CharField(max_length=150, choices=PROJECT_ROLES_CHOICES, 
+                                    verbose_name="Project Role",default='Project Manager')
+    project = models.ForeignKey(Project,null=True, blank=True, on_delete=models.DO_NOTHING, related_name="team_members")
+    
+    def __str__(self):
+        return f'{self.name} - {self.project_role}'

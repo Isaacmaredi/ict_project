@@ -22,7 +22,7 @@
 		
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb bg-light">
-					<li class="breadcrumb-item"><a href="{% url 'dash:dashboard' %}">Home</a></li>
+					<li class="breadcrumb-item"><a href="{% url 'profiles:profile-list' %}">Home</a></li>
 					<li class="breadcrumb-item active" aria-current="page">All Contracts</li>
 				</ol>
 			</nav>
@@ -33,11 +33,7 @@
 		<div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
 		<div class="input-group">
 			<span class="input-group-btn">
-				<!-- <form action="" method="GET">
-					<input type="text" name="mobile_phone" value="{{request.GET.mobile_phone}}" 
-					class="form-control" placeholder="Search...">
-					<button type="submit" class="btn btn-primary text-white" >Go!</button>
-				</form> -->
+				
 			</span>
 		</div>
 		</div>
@@ -55,10 +51,10 @@
 
                     <form class="form-inline">
                         <div class="form-group">
-                            <legend > <strong>  Search or Filter by Specified Fields</strong></legend>
+                            <!-- <legend > <strong>  Search or Filter by Specified Fields</strong></legend>
                             <hr>
                                 {{filter.form|crispy}}
-                                <input type="submit" class="btn btn-secondary" value="Filter Search">
+                                <input type="submit" class="btn btn-secondary" value="Filter Search"> -->
                         </div>
                     </form>
                     <hr>
@@ -82,7 +78,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    {% for contract in filter.qs %}
+                    {% for contract in contracts %}
                     <tr>
                             <td style="width: 10%">
                                 {{contract.contract_num}}
@@ -113,7 +109,7 @@
                                 {% if contract.time_until_end > 0 %}
                                 {{contract.end_date|timeuntil}} to expiry
                                 {% else %}
-                                 <strong class="text-danger">Expired {{contract.end_date|timesince}} ago </strong>   
+								<strong class="text-danger">Expired {{contract.end_date|timesince}} ago </strong>   
                                 {% endif %}
                             </td>
                             <td style="width: 15%">

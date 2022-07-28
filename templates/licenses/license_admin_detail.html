@@ -70,7 +70,7 @@
                         Time to license renewal is: {{license.next_renewal_date|timeuntil}}
                     </span>
                     {% else %}
-                    <span class="value"><strong class="btn btn-sm btn-block btn--danger">License Renewal Status: Overdue! </strong></span>
+                    <span class="value"><strong class="btn btn-sm btn-block btn-danger">License Renewal Status: Overdue! </strong></span>
                     <span class="value text-secondary">
                             License renewal is overdue by:  {{license.next_renewal_date|timesince}}     
                     </span>

@@ -8,17 +8,17 @@ from django.views.generic import (ListView, DetailView,
                                 DeleteView)
 
 from .forms import ContractCreateForm
-from .filters import ContractFilter
+# from .filters import ContractFilter
 # Create your views here.
 class ContractListView(ListView):
     model = Contract
     template_name = 'contracts/contract_list.html'
     context_object_name = 'contracts'
-    paginate_by = 2
+    paginate_by = 10
     
     def get_context_data(self, *args, **kwargs):
         context= super(ContractListView, self).get_context_data(*args, **kwargs)
-        context['filter'] = ContractFilter(self.request.GET, queryset=self.get_queryset())
+        # context['filter'] = ContractFilter(self.request.GET, queryset=self.get_queryset())
         context['total_contracts'] = Contract.objects.all().count()
         return context
 
@@ -30,7 +30,7 @@ class ContractAdminListView(LoginRequiredMixin, ListView):
     model = Contract
     context_object_name = 'contracts'
     template_name = 'contracts/contract_admin.html'
-    paginate_by = 2
+    paginate_by = 10
     
     
     def get_context_data(self, *args, **kwargs):
@@ -42,7 +42,6 @@ class ContractDetailView(LoginRequiredMixin,DetailView):
     model = Contract
     template_name = 'contracts/contract_detail.html'
     context_object_name = 'contract'   
-   
 
 class ContractAdminDetailView(LoginRequiredMixin,DetailView):
     model = Contract

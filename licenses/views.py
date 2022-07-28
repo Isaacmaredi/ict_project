@@ -16,7 +16,7 @@ class LicenseListView(LoginRequiredMixin, ListView):
     model = License
     context_object_name ='licenses'
     template_name ='licenses/license_list.html'
-    paginate_by = 2
+    paginate_by = 10
     
     def get_context_data(self,*args, **kwargs):
         context = super(LicenseListView, self).get_context_data(*args,**kwargs)
@@ -27,7 +27,7 @@ class LicenseAdminListView(LoginRequiredMixin, ListView):
     model = License
     context_object_name = 'licenses'
     template_name = 'licenses/license_admin.html'
-    paginate_by = 2
+    paginate_by = 10
     
     def get_context_data(self, *args, **kwargs):
         context = super(LicenseAdminListView, self).get_context_data(*args, **kwargs)
@@ -58,6 +58,7 @@ class LicenseUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     form_class = LicenseCreateForm
     model = License
     context_object_name = 'license'
+    template_name ='licenses/license_update.html'
     
     def form_valid(self, form):
         form.instance.owner_id = self.request.user.id

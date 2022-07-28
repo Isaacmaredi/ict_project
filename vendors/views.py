@@ -10,7 +10,7 @@ from .models import Vendor
 class VendorListView(LoginRequiredMixin,ListView):
     model = Vendor
     template_name = 'vendors/vendor_list.html'
-    paginate_by = 5
+    paginate_by = 15
     context_object_name = 'vendors'
     
     def get_context_data(self,*args,**kwargs):
@@ -22,7 +22,7 @@ class VendorListView(LoginRequiredMixin,ListView):
 class VendorAdminListView(LoginRequiredMixin,ListView):
     model = Vendor
     template_name = 'vendors/vendor_admin.html'
-    paginate_by = 5
+    paginate_by = 15
     context_object_name = 'vendors'
     
     def get_context_data(self,*args,**kwargs):
