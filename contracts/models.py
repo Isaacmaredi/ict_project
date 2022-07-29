@@ -21,8 +21,6 @@ AGREEMENT_TYPE_CHOICES = [
 
 # Create your models here.
 class Contract(models.Model):
-    contract_num = models.PositiveIntegerField(default=0, verbose_name='Contract #')
-    contract_id = models.CharField(max_length=100, verbose_name="Contract ID")
     description = models.CharField(max_length=300)
     responsible_unit = models.CharField(max_length=300, verbose_name="Responsible Unit")
     owner = models.ForeignKey(Profile, on_delete=models.DO_NOTHING, 
