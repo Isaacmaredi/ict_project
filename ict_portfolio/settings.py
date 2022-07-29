@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django_filters',
     'bootstrapform',
     'crispy_forms',
-    # 'import_export',
+    # 'import_export',  
     # Custom apps
     'accounts',
     'contracts',
@@ -121,7 +121,7 @@ LOGOUT_REDIRECT_URL = 'profiles:profile-admin'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Johannesburg'
 
 USE_I18N = True
 
